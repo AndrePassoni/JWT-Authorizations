@@ -9,6 +9,7 @@ const productsController = new ProductsController()
 
 // Aplicar autorização em todas as rotas a seguir.
 // productsRoutes.use(verifyUserAuthorization(["sale", "admin"]))
+
 productsRoutes.get("/", productsController.index)
 productsRoutes.post("/", ensureAuthenticated, verifyUserAuthorization(["sale", "admin"]), productsController.create)
 
